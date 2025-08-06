@@ -11,6 +11,7 @@ class InputEmbeddings(nn.Module):
         self.embedding = nn.Embedding(vocab_size, d_model)
 
     def forward(self, x):
+        print("Input max index:", x.max().item(), "Embedding vocab size:", self.vocab_size)
         return self.embedding(x) * math.sqrt(self.d_model)
 
 class PositionalEncoding(nn.Module):
